@@ -102,11 +102,31 @@ const App = () =>{
   const setToZero = () =>{
     setCounter(0)
   }
+  const decreaseByOne = ()=>{
+    setCounter(counter-1)
+  }
+  const Display = (props) =>{
+    const counter = props.counter
+    return(
+      <div>
+        {counter}
+      </div>
+    )
+    }
+  const Button = (props) =>{
+    const {onClick,text} = props
+    return(
+      <div>
+        <button onClick={onClick}>{text}</button>
+      </div>
+    )
+  }
   return(
     <div>
-      <p>{counter}</p>
-      <button onClick={increaseByOne}>plus</button>
-      <button onClick={setToZero}>zero</button>
+      <Display counter={counter} />
+      <Button onClick={increaseByOne} text="plus" />
+      <Button onClick={setToZero} text="zero" />
+      <Button onClick={decreaseByOne} text = "minus"/>
     </div>
   )
 }
