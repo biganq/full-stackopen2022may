@@ -93,41 +93,124 @@ import { useState } from "react";
 //     </div>
 //   )
 // }
-const App = () =>{
-  const [counter,setCounter] = useState(0)
-  const increaseByOne = () =>{
-    console.log("clicked")
-    setCounter(counter+1)
-  }
-  const setToZero = () =>{
-    setCounter(0)
-  }
-  const decreaseByOne = ()=>{
-    setCounter(counter-1)
-  }
-  const Display = (props) =>{
-    const counter = props.counter
-    return(
-      <div>
-        {counter}
-      </div>
-    )
+// const App = () =>{
+//   const [counter,setCounter] = useState(0)
+//   const increaseByOne = () =>{
+//     console.log("clicked")
+//     setCounter(counter+1)
+//   }
+//   const setToZero = () =>{
+//     setCounter(0)
+//   }
+//   const decreaseByOne = ()=>{
+//     setCounter(counter-1)
+//   }
+//   const Display = (props) =>{
+//     const counter = props.counter
+//     return(
+//       <div>
+//         {counter}
+//       </div>
+//     )
+//     }
+//   const Button = (props) =>{
+//     const {onClick,text} = props
+//     return(
+//       <div>
+//         <button onClick={onClick}>{text}</button>
+//       </div>
+//     )
+//   }
+//   return(
+//     <div>
+//       <Display counter={counter} />
+//       <Button onClick={increaseByOne} text="plus" />
+//       <Button onClick={setToZero} text="zero" />
+//       <Button onClick={decreaseByOne} text = "minus"/>
+//     </div>
+//   )
+// }
+// const App = () =>{
+//   const [left,setLeft] = useState(0)
+//   const [right,setRight] = useState(0)
+
+//   return(
+//     <div>
+//       <span>left:{left}</span><span>right:{right}</span>
+//       <button onClick={()=>setLeft(left+1)}>left+1</button>
+//       <button onClick={()=>setRight(right+1)}>right+1</button>
+//     </div>
+//   )
+// }
+
+// const History = (props) =>{
+//   const {allClicks} = props
+//   if (allClicks.length===0){
+//     return (
+//       <div>
+//         the app is used by pressing the buttons
+//       </div>
+//     )
+//   }else{
+//     return(
+//       <div>
+//         the button History is :{allClicks.join(" ")}
+//       </div>
+//     )
+//   }
+
+// }
+
+// const Button = (props) =>{
+//   const {text,onClick} = props
+//   return(
+//     <div>
+//       <button onClick={onClick}>{text}</button>
+//     </div>
+//   )
+// }
+
+// const App = () =>{
+//   const [left,setLeft] = useState(0)
+//   const [right,setRight] = useState(0)
+//   const [allClicks,setAll] = useState([])
+
+//   const handleLeft = () =>{
+//     setLeft(left+1)
+//     setAll(allClicks.concat("L"))
+//   }
+//   const handleRight = () =>{
+//     setRight(right+1)
+//     setAll(allClicks.concat("R"))
+//   }
+//   return(
+//     <div>
+//       <p>left:{left}</p><p>right:{right}</p>
+//       <Button onClick={handleRight} text={"right"} />
+//       <Button onClick={handleLeft} text={"left"} />
+//       <History allClicks={allClicks} />
+//     </div>
+//   )
+  
+// }
+const App = () => {
+  const [value, setValue] = useState(10)
+
+  const hello = (who) => {
+    const handler = () => {
+      console.log('hello', who)
     }
-  const Button = (props) =>{
-    const {onClick,text} = props
-    return(
-      <div>
-        <button onClick={onClick}>{text}</button>
-      </div>
-    )
+    return handler
   }
-  return(
+
+  return (
     <div>
-      <Display counter={counter} />
-      <Button onClick={increaseByOne} text="plus" />
-      <Button onClick={setToZero} text="zero" />
-      <Button onClick={decreaseByOne} text = "minus"/>
+      {value}
+      <button onClick={hello('world')}>button</button>
+      <button onClick={hello('react')}>button</button>
+      <button onClick={hello('function')}>button</button>
     </div>
   )
 }
+
 export default App;
